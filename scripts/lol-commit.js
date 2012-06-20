@@ -17,8 +17,8 @@
      * fired if the image was loaded successfully, it will not fire if the
      * image does not exist. */
     img.onload = function() {
-      img.height = 140;
-      img.width = 140;
+      img.height = 240;
+      img.width = 320;
       parent_img.replaceChild(img, commit_img)
     }
   } 
@@ -30,7 +30,7 @@
     match = regex.exec(url)
     if (match !== undefined) {
       matches.push(match[1])
-      matches.push(match[2]) 
+      matches.push(match[2].substr(0,11)) 
     }  
     
     if (!matches.length) {
