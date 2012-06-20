@@ -1,26 +1,43 @@
-  var LOLCOMMIT = 'https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png';
+  var LOLCOMMIT = 'https://s3-eu-west-1.amazonaws.com/lolcommits-uploader/';
 
   var commit = window.document.querySelector('body.page-commit-show');
   var dashboard = window.document.querySelector('body.page-dashboard');
   var pull_request = window.document.querySelector('body.page-pullrequest');
 
-  var lolCommitImg = function(sha) {
-    return LOLCOMMIT + '?sha=' + sha;
+  var lolCommitUrl = function(sha){
+        return LOLCOMMIT + sha;
+  }
+
+  var lolCommitImg = function(commit_img, sha) {
+    var img = window.document.createElement('img');
+    var parent_img = commit_img.parentNode;
+    img.src = lolCommitUrl(sha);
+
+    /* When the image is loaded, we insert it into the DOM. This event is only
+     * fired if the image was loaded successfully, it will not fire if the
+     * image does not exist. */
+    img.onload = function() {
+      img.height = 140;
+      img.width = 140;
+      parent_img.replaceChild(img, commit_img)
+    }
   } 
 
   var extractSha = function(url){
-    var regex = /\w*$/,
+    var regex = /(\w*)\/commit\/(\w*)$/,
         matches = [];
     
     match = regex.exec(url)
-    if (match !== undefined)
-      matches.push(match[0]) 
+    if (match !== undefined) {
+      matches.push(match[1])
+      matches.push(match[2]) 
+    }  
     
     if (!matches.length) {
       return;
     }
 
-    return matches[0];
+    return matches.join('/') + '.jpg';
   }
 
   var changeAuthorshipAvatar = function(){
@@ -28,9 +45,7 @@
     var sha = extractSha(document.location.pathname);
 
     if (sha !== null && commit_img !== null)
-      commit_img.src = lolCommitImg(sha);
-      commit_img.height = 140;
-      commit_img.width = 140; 
+      lolCommitImg(commit_img, sha)
   }
 
   var changeCommitsAvatar = function(){
@@ -42,11 +57,8 @@
           img = commit_imgs[i],
           sha = extractSha(link.href);
 
-      if (img){
-        img.src = lolCommitImg(sha);
-        img.height = 140;
-        img.width = 140; 
-      }     
+      if (img)
+        lolCommitImg(img, sha);
     };
   }
 
@@ -59,7 +71,8 @@
           img = commit_imgs[i],
           sha = extractSha(link.href);
 
-      img.src = lolCommitImg(sha);    
+      if (img)
+        lolCommitImg(img, sha); 
     };
   }
 
