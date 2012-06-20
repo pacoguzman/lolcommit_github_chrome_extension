@@ -50,15 +50,22 @@
 
   var changeCommitsAvatar = function(){
     links = window.document.querySelectorAll('.alert .commits ul li code a');
-    commit_imgs = window.document.querySelectorAll('.alert .commits ul li span[title] img');
- 
+    
     for (var i = links.length - 1; i >= 0; i--) {
       var link = links[i],
-          img = commit_imgs[i],
-          sha = extractSha(link.href);
+          sha = extractSha(link.href),
+          img;
+
+      img = link.parentNode.parentNode.querySelector('span[title] img');
 
       if (img)
         lolCommitImg(img, sha);
+      else {
+        img = link.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.gravatar img')
+        if (img) {
+          lolCommitImg(img, sha);
+        }
+      }
     };
   }
 
