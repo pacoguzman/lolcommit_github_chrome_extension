@@ -1,4 +1,24 @@
-To Be Confirmed
+## Installation
+
+1. Clone the repo to your local machine
+
+```shell
+git clone https://github.com/pacoguzman/lolcommit_github_chrome_extension.git
+```
+
+2. Open Chrome
+
+3. Bring up the extensions management page by clicking the wrench icon and choosing __Tools > Extensions__.
+
+4. If __Developer mode__ has a + by it, click the + to add developer information to the page. The + changes to a -, and more buttons and information appear.
+
+5. Click the __Load unpacked extension__ button. A file dialog appears.
+
+6. In the file dialog, navigate to your repo's folder and click OK
+
+7. If the extension is valid, its icon (Github Icon) appears next to the address bar, and information about the extension appears in the extensions page, as the following screenshot shows.
+
+![LolCommit Github Chrome Extension Icon](http://f.cl.ly/items/203d0G2n3I1k2d0j0x2q/Screen%20Shot%202012-06-20%20at%203.34.47%20PM.png)
 
 ## Source Code License(s)
 
