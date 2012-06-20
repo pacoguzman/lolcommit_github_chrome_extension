@@ -1,0 +1,16 @@
+{
+  "name": "LolCommit Github Chrome Extension",
+  "version": "0.1",
+  "manifest_version": 1,
+  "description": "Change commit avatar for LolCommit images",
+  "browser_action": {
+    "default_icon": "icons/github-icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["scripts/lol-commit.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
