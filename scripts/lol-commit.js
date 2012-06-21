@@ -28,7 +28,7 @@
         matches = [];
     
     match = regex.exec(url)
-    if (match !== undefined) {
+    if (match !== null) {
       matches.push(match[1])
       matches.push(match[2].substr(0,11)) 
     }  
@@ -49,7 +49,7 @@
   }
 
   var changeCommitsAvatar = function(){
-    links = window.document.querySelectorAll('.alert .commits ul li code a');
+    links = window.document.querySelectorAll('.alert .commits ul li code a:not([data-proccessed])');
     
     for (var i = links.length - 1; i >= 0; i--) {
       var link = links[i],
@@ -66,6 +66,8 @@
           lolCommitImg(img, sha);
         }
       }
+      
+      link.setAttribute('data-proccessed', true);
     };
   }
 
@@ -84,11 +86,14 @@
   }
 
   if (commit) { 
-    changeAuthorshipAvatar(); 
+    changeAuthorshipAvatar();
   }
 
   if (dashboard) {
     changeCommitsAvatar();
+    window.document.addEventListener('DOMNodeInserted', function(){
+      changeCommitsAvatar();
+    }); 
   }
 
   if (pull_request) {
