@@ -1,4 +1,8 @@
-## Installation
+## Install the last packaged version
+
+[Click here](https://raw.github.com/pacoguzman/lolcommit_github_chrome_extension/master/lolcommit_github_chrome_extension.crx)
+
+## Install the development version
 
 1. Clone the repo to your local machine
 
