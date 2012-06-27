@@ -20,6 +20,10 @@ git clone https://github.com/pacoguzman/lolcommit_github_chrome_extension.git
 
 ![LolCommit Github Chrome Extension Icon](http://f.cl.ly/items/203d0G2n3I1k2d0j0x2q/Screen%20Shot%202012-06-20%20at%203.34.47%20PM.png)
 
+## TODO
+
+Please I need someone to make work the binding to the GitHub pageUpdate event
+
 ## Source Code License(s)
 
 All source code in this project are licensed under the MIT license.
