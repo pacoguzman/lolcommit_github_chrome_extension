@@ -19,7 +19,14 @@ var LolCommits = {
   insertImage: function($item, handler) {
     var repoAndSha = LolCommits.repoAndSha($item.attr('href')),
         url = LolCommits.image_base_url + repoAndSha + '.jpg',
-        img = window.document.createElement('img');
+        img;
+
+    if ($item.data('proccessed'))
+      return;
+    else
+      $item.data('proccessed', true);
+
+    img = window.document.createElement('img')
     img.src = url;
     img.onload = function() {
       handler($item, img);
