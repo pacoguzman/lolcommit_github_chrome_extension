@@ -26,7 +26,7 @@ git clone https://github.com/pacoguzman/lolcommit_github_chrome_extension.git
 
 ## TODO
 
-Please I need someone to make work the binding to the GitHub pageUpdate event
+Whatevet you want to me to include
 
 ## Source Code License(s)
 

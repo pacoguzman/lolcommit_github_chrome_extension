@@ -1,6 +1,6 @@
 {
   "name": "LolCommits Github Chrome Extension",
-  "version": "0.1",
+  "version": "0.1.1",
   "manifest_version": 1,
   "description": "Add LolCommits images in Github",
   "browser_action": {
@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "js": ["scripts/jquery-1.7.2.min.js", "scripts/lol-commits.js", "scripts/handlers.js"],
+      "js": ["scripts/inject.js"],
       "run_at": "document_end"
     }
   ]

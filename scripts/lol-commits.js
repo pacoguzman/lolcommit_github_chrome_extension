@@ -2,11 +2,11 @@ var LolCommits = {
   handlers: {},
 
   start: function() {
-    for (selector in LolCommits.handlers) {
-      $(selector).each(function() {
-        LolCommits.insertImage($(this), LolCommits.handlers[selector]);
+    $.each(LolCommits.handlers, function(selector, handler){
+      $(selector).each(function(){
+        LolCommits.insertImage($(this), handler);
       });
-    }
+    });
   },
 
   repoAndSha: function(url) {
@@ -26,7 +26,7 @@ var LolCommits = {
     else
       $item.data('proccessed', true);
 
-    img = window.document.createElement('img')
+    img = window.document.createElement('img');
     img.src = url;
     img.onload = function() {
       handler($item, img);
@@ -34,4 +34,4 @@ var LolCommits = {
   },
 
   image_base_url: 'https://s3-eu-west-1.amazonaws.com/lolcommits-uploader/'
-}
+};
