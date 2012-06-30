@@ -1,7 +1,7 @@
 {
   "name": "LolCommits Github Chrome Extension",
   "version": "0.1.1",
-  "manifest_version": 1,
+  "manifest_version": 2,
   "description": "Add LolCommits images in Github",
   "browser_action": {
     "default_icon": "icons/github-icon.png"
